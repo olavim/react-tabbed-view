@@ -6,7 +6,7 @@ import TabTitle from './TabTitle';
 
 export default class TabbedView extends React.Component {
 	static propTypes = {
-		selectedKey: React.PropTypes.any.isRequired,
+		selectedKey: React.PropTypes.string.isRequired,
 		onChange: React.PropTypes.func.isRequired,
 		renderTab: React.PropTypes.func,
 		renderTabList: React.PropTypes.func,
@@ -69,7 +69,6 @@ export default class TabbedView extends React.Component {
 
 		const tabContentList = Object.entries(entries).map(([key, value]) => {
 			const selected = key === selectedKey;
-
 			return renderTabContent(value.content, {
 				key,
 				style: {display: selected ? undefined : 'none'},

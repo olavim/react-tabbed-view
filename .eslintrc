@@ -1,16 +1,9 @@
 {
   "extends": "xo",
   "parser": "babel-eslint",
-  "envs": [
-	"node",
-	"browser",
-	"es6",
-	"jest"
-  ],
+  "envs": ["node", "browser", "es6", "jest"],
   "esnext": true,
-  "plugins": [
-	"react"
-  ],
+  "plugins": ["babel", "react"],
   "ecmaFeatures": {
 	"classes": true,
 	"jsx": true
@@ -23,27 +16,23 @@
 	"react/jsx-uses-vars": 2,
 	"react/no-danger": 2,
 	"react/no-deprecated": 2,
-	"react/no-did-mount-set-state": [
-	  2,
-	  "disallow-in-func"
-	],
+	"react/no-did-mount-set-state": [2, "disallow-in-func"],
 	"react/no-direct-mutation-state": 2,
 	"react/no-is-mounted": 2,
 	"react/no-unknown-property": 2,
 	"react/no-render-return-value": 2,
 	"react/prop-types": 2,
 	"react/react-in-jsx-scope": 2,
+	"object-curly-spacing": 0,
+	"babel/object-curly-spacing": ["error", "never"],
+	"newline-before-return": 0,
 	"newline-after-var": 0,
 	"no-undefined": 0,
 	"no-return-assign": 0,
-	"no-extra-parens": [
-	  2,
-	  "all",
-	  {
-		"returnAssign": false,
-		"ignoreJSX": "multi-line",
-		"nestedBinaryExpressions": false
-	  }
-	]
+	"no-extra-parens": [2, "all", {
+	  "returnAssign": false,
+	  "ignoreJSX": "multi-line",
+	  "nestedBinaryExpressions": false
+	}]
   }
 }

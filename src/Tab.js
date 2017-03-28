@@ -17,8 +17,8 @@ export default class Tab extends React.Component {
 				return new Error('`' + componentName + '` should have a child of type `TabTitle` and `TabContent`.');
 			}
 
-			if ((childArr[0].type !== TabTitle || childArr[0].type !== TabContent) &&
-					(childArr[1].type !== TabTitle || childArr[1].type !== TabContent)) {
+			if ((childArr[0].type !== TabTitle && childArr[0].type !== TabContent) ||
+					(childArr[1].type !== TabTitle && childArr[1].type !== TabContent)) {
 				return new Error('`' + componentName + '` should have a child of type `TabTitle` and `TabContent`.');
 			}
 

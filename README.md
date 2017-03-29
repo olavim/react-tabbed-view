@@ -74,12 +74,12 @@ The root component. Children should be *Tab* components.
 
 **Prop**|**Type**|**Description**
 --------|--------|---------------
-`selectedKey`|*any, required*|Key of the selected tab. If a tab with such key<br>cannot be found, then none of the tabs will be<br>selected.
-`onChange`|*func, required*|A callback function that will be called when a<br>non-selected tab should be selected. Called when<br>a tab is clicked, or when navigated to through<br>keyboard events.
-`tabListClassName`|*string*|className of the element wrapping all the tabs.<br>Use this to set the className of the tab list element<br>if you don't want to define the whole render function<br>for it.
+`selectedKey`|*any, required*|Key of the selected tab. If a tab with such key cannot be found, then none of the tabs will be selected.
+`onChange`|*func, required*|A callback function that will be called when a non-selected tab should be selected. Called when a tab is clicked, or when navigated to through keyboard events.
+`tabListClassName`|*string*|className of the element wrapping all the tabs. Use this to set the className of the tab list element if you don't want to define the whole render function for it.
 `renderTab`|*func*|A callback that determines how a tab should be rendered.
-`renderTabList`|*func*|A callback that determines how the component wrapping<br>all of the tabs should be rendered.
-`renderTabContent`|*func*|A callback that determines how the contents of the<br>selected tab should be rendered.
+`renderTabList`|*func*|A callback that determines how the component wrapping all of the tabs should be rendered.
+`renderTabContent`|*func*|A callback that determines how the contents of the selected tab should be rendered.
 
 **Rendering callbacks**
 
@@ -87,11 +87,11 @@ The props `renderTab`, `renderTabList` and `renderTabContent` should be given
 special attention. They determine how you want your tabs to behave and look,
 and even give you a change to override default functionality.
 
-**Function**|**Parameters**|**Default return value**|**Notes**
-------------|--------------|------------------------|---------
-`renderTab`|*children*, *tabKey*, *props*|`<div {...props}>{children}</div>`|`props` are the props you give to the *TabTitle* component,<br>plus the properties `onClick` and `onKeyDown`.
-`renderTabList`|*children*|`<div>{children}</div>`| 
-`renderTabContent`|*children*, *tabKey*, *props*|`<div {...props}>{children}</div>`|`props` are the props you give to the *TabContent* component,<br>plus the property `style`.
+**Function**|**Parameters**|**Notes**
+------------|--------------|---------
+`renderTab`|*children*, *tabKey*, *props*|`props` are the props you give to the *TabTitle* component, plus the properties `onClick` and `onKeyDown`.
+`renderTabList`|*children*| | 
+`renderTabContent`|*children*, *tabKey*, *props*|`props` are the props you give to the *TabContent* component, plus the property `style`.
 
 As you can see, you can even choose to override the `onClick` and `onKeyDown` events
 on the tabs; the two events that can fire the `onChange` callback prop you gave to

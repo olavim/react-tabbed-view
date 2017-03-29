@@ -25,6 +25,7 @@ of a component. This can be changed so that remounts will happen.
 ## Usage
 
 ```js
+import React from 'react';
 import {TabbedView, Tab, TabTitle, TabContent} from 'react-tabbed-view';
 
 class Component extends React.Component {
@@ -46,14 +47,14 @@ class Component extends React.Component {
         renderTabList={children => <div {...props}>{children}</div>}
         renderTabContent={(children, props) => <div {...props}>{children}</div>}
       >
-        <Tab tabKey={'home'}>
+        <Tab tabKey="home">
           <TabTitle className="tab-title">Home</TabTitle>
           <TabContent className="tab-content">
             <h2>Hello World!</h2>
             <p>Lorem ipsum...</p>
           </TabContent>
         </Tab>
-        <Tab tabKey={'about'}>
+        <Tab tabKey="about">
           <TabTitle className="tab-title">This is the title</TabTitle>
           <TabContent className="tab-content">
             This is the content.
@@ -69,7 +70,7 @@ class Component extends React.Component {
 
 #### TabbedView
 
-The root tab component. Children should be *Tab* components.
+The root component. Children should be *Tab* components.
 
 **Prop**|**Type**|**Description**
 --------|--------|---------------

@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import Tab from './Tab';
 import TabContent from './TabContent';
 import TabTitle from './TabTitle';
@@ -7,6 +8,7 @@ export default class TabbedView extends React.Component {
 	static propTypes = {
 		selectedKey: React.PropTypes.any.isRequired,
 		onChange: React.PropTypes.func.isRequired,
+		tabListClassName: React.PropTypes.string,
 		renderTab: React.PropTypes.func,
 		renderTabList: React.PropTypes.func,
 		renderTabContent: React.PropTypes.func,
@@ -26,7 +28,7 @@ export default class TabbedView extends React.Component {
 
 	static defaultProps = {
 		renderTab: (children, tabKey, props) => <div {...props}>{children}</div>,
-		renderTabList: children => <div>{children}</div>,
+		renderTabList: (children, props) => <div {...props}>{children}</div>,
 		renderTabContent: (children, tabKey, props) => <div {...props}>{children}</div>
 	};
 
@@ -36,27 +38,12 @@ export default class TabbedView extends React.Component {
 		}
 	};
 
-	handleKeyDown = (evt, tabKey) => {
-		const tabs = React.Children.toArray(this.props.children);
-		const index = tabs.findIndex(tab => tab.props.tabKey === tabKey);
-
-		if (evt.keyCode === 37 && index > 0) {
-			// Left arrow
-			this.props.onChange(evt, tabs[index - 1].props.tabKey);
-		} else if (evt.keyCode === 37 && index < tabs.length - 1) {
-			// Right arrow
-			this.props.onChange(evt, tabs[index + 1].props.tabKey);
-		} else if (evt.keyCode === 9) {
-			// Tab
-			this.props.onChange(evt, tabs[index % tabs.length].props.tabKey);
-		}
-	};
-
 	render() {
 		const {
 			children,
-			onChange,
 			selectedKey,
+			onChange,
+			tabListClassName,
 			renderTab,
 			renderTabList,
 			renderTabContent,
@@ -80,43 +67,40 @@ export default class TabbedView extends React.Component {
 		});
 
 		const tabs = Object.entries(entries).map(([key, value]) => {
-			const {children, onClick, onKeyDown, ...other} = value.title.props;
-			let _onClick = evt => this.handleClickTab(evt, key);
-			let _onKeyDown = evt => this.handleKeyDown(evt, key);
+			const tabKey = JSON.parse(key);
+			const {children, onClick, className, selectedClassName, ...other} = value.title.props;
+			let _onClick = evt => this.handleClickTab(evt, tabKey);
 
 			if (typeof onClick === 'function') {
 				_onClick = evt => {
-					const ret = onClick(evt, key);
+					const ret = onClick(evt, tabKey);
 					if (ret !== false) {
-						this.handleClickTab(evt, key);
+						this.handleClickTab(evt, tabKey);
 					}
 				};
 			}
 
-			if (typeof onKeyDown === 'function') {
-				_onKeyDown = evt => {
-					const ret = onKeyDown(evt, key);
-					if (ret !== false) {
-						this.handleKeyDown(evt, key);
-					}
-				};
-			}
-
-			return renderTab(children, key, Object.assign({
-				key,
+			return renderTab(children, tabKey, Object.assign({
+				key: tabKey,
 				onClick: _onClick,
-				onKeyDown: _onKeyDown
+				className: classNames(className, {
+					[selectedClassName]: tabKey === this.props.selectedKey
+				})
 			}, other));
 		});
 
-		const tabList = renderTabList(tabs);
+		const tabList = renderTabList(tabs, {className: tabListClassName});
 
 		const tabContentList = Object.entries(entries).map(([key, value]) => {
-			const selected = key === selectedKey;
-			const {children, style, ...other} = value.content.props;
-			return renderTabContent(children, key, Object.assign({
-				key,
-				style: Object.assign({display: selected ? undefined : 'none'}, style)
+			const tabKey = JSON.parse(key);
+			const selected = tabKey === selectedKey;
+			const {children, style, className, selectedClassName, ...other} = value.content.props;
+			return renderTabContent(children, tabKey, Object.assign({
+				key: tabKey,
+				style: Object.assign({display: selected ? undefined : 'none'}, style),
+				className: classNames(className, {
+					[selectedClassName]: tabKey === this.props.selectedKey
+				})
 			}, other));
 		});
 

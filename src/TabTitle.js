@@ -2,7 +2,8 @@ import React from 'react';
 
 export default class TabTitle extends React.Component {
 	static propTypes = {
-		children: React.PropTypes.any
+		children: React.PropTypes.any,
+		selectedClassName: React.PropTypes.string
 	};
 
 	render() {

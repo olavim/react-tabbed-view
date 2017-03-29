@@ -75,6 +75,7 @@ The root tab component. Children should be *Tab* components.
 --------|--------|---------------
 `selectedKey`|*any, required*|Key of the selected tab. If a tab with such key<br>cannot be found, then none of the tabs will be<br>selected.
 `onChange`|*func, required*|A callback function that will be called when a<br>non-selected tab should be selected. Called when<br>a tab is clicked, or when navigated to through<br>keyboard events.
+`tabListClassName`|*string*|className of the element wrapping all the tabs.<br>Use this to set the className of the tab list element<br>if you don't want to define the whole render function<br>for it.
 `renderTab`|*func*|A callback that determines how a tab should be rendered.
 `renderTabList`|*func*|A callback that determines how the component wrapping<br>all of the tabs should be rendered.
 `renderTabContent`|*func*|A callback that determines how the contents of the<br>selected tab should be rendered.
@@ -120,18 +121,26 @@ and the contents will be one after the other next to the tab list.
 
 #### TabTitle
 
-Nothing special about this component. One of these should go inside a *Tab*.
+Should go inside a *Tab* component.
 The contents of this component determine the title of that tab.
 
-If you specify the `onClick` or `onKeyDown` props, they will be called with
-the original *event* and *tabKey* parameters **before** the default `onClick`
-and `onKeyDown` handlers. If you return `false` from your own `onClick` or
-`onKeyDown` handler, the respective default event handler will not be called.
+**Prop**|**Type**|**Description**
+--------|--------|---------------
+`selectedClassName`|*string*|If the tab this component is inside of is selected, this prop<br>will be appended to the className of this component.
+
+If you specify the `onClick` prop, they will be called with the original *event* 
+and *tabKey* parameters **before** the default `onClick` handler. If you return 
+`false` from your own `onClick` handler, the respective default event handler 
+will not be called.
 
 #### TabContent
 
-Nothing special about this component either. One of these should go inside a *Tab*.
-The contents of this component determine the content of that tab.
+Should go inside a *Tab* component.
+The contents of this component determine the contents of that tab.
+
+**Prop**|**Type**|**Description**
+--------|--------|---------------
+`selectedClassName`|*string*|If the tab this component is inside of is selected, this prop<br>will be appended to the className of this component.
 
 **Note** that specifying a `style` prop with a `display` property on this component 
 will override the default style given by *TabbedView*, which makes the component

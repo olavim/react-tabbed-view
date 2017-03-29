@@ -6,8 +6,8 @@ import TabTitle from './TabTitle';
 
 export default class TabbedView extends React.Component {
 	static propTypes = {
-		selectedKey: React.PropTypes.any.isRequired,
-		onChange: React.PropTypes.func.isRequired,
+		selectedKey: React.PropTypes.any,
+		onChange: React.PropTypes.func,
 		tabListClassName: React.PropTypes.string,
 		renderTab: React.PropTypes.func,
 		renderTabList: React.PropTypes.func,
@@ -27,6 +27,8 @@ export default class TabbedView extends React.Component {
 	};
 
 	static defaultProps = {
+		selectedKey: null,
+		onChange: () => {},
 		renderTab: (children, tabKey, props) => <div {...props}>{children}</div>,
 		renderTabList: (children, props) => <div {...props}>{children}</div>,
 		renderTabContent: (children, tabKey, props) => <div {...props}>{children}</div>

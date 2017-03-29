@@ -74,8 +74,8 @@ The root component. Children should be *Tab* components.
 
 **Prop**|**Type**|**Description**
 --------|--------|---------------
-`selectedKey`|*any, required*|Key of the selected tab. If a tab with such key cannot be found, then none of the tabs will be selected.
-`onChange`|*func, required*|A callback function that will be called when a non-selected tab should be selected. Called when a tab is clicked, or when navigated to through keyboard events.
+`selectedKey`|*any*|Key of the selected tab. If a tab with such key cannot be found, then none of the tabs will be selected.
+`onChange`|*func*|A callback function that will be called when a non-selected tab should be selected. Called when a tab is clicked, or when navigated to through keyboard events.
 `tabListClassName`|*string*|className of the element wrapping all the tabs. Use this to set the className of the tab list element if you don't want to define the whole render function for it.
 `renderTab`|*func*|A callback that determines how a tab should be rendered.
 `renderTabList`|*func*|A callback that determines how the component wrapping all of the tabs should be rendered.
@@ -90,7 +90,7 @@ and even give you a change to override default functionality.
 **Function**|**Parameters**|**Notes**
 ------------|--------------|---------
 `renderTab`|*children*, *tabKey*, *props*|`props` are the props you give to the *TabTitle* component, plus the properties `onClick` and `onKeyDown`.
-`renderTabList`|*children*| | 
+`renderTabList`|*children*, *props*|`props` is empty, unless you have specified the `tabListClassName` prop.| 
 `renderTabContent`|*children*, *tabKey*, *props*|`props` are the props you give to the *TabContent* component, plus the property `style`.
 
 As you can see, you can even choose to override the `onClick` and `onKeyDown` events

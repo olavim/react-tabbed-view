@@ -26,6 +26,7 @@
 	"object-curly-spacing": 0,
 	"babel/object-curly-spacing": ["error", "never"],
 	"no-underscore-dangle": 0,
+	"no-empty-function": 0,
 	"newline-before-return": 0,
 	"newline-after-var": 0,
 	"no-undefined": 0,

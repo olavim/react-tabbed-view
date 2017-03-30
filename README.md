@@ -74,7 +74,7 @@ The root component. Children should be *Tab* components.
 
 **Prop**|**Type**|**Description**
 --------|--------|---------------
-`selectedKey`|*any*|Key of the selected tab. If a tab with such key cannot be found, then none of the tabs will be selected.
+`selectedKey`|*string* or *number*|Key of the selected tab. If a tab with such key cannot be found, then none of the tabs will be selected.
 `onChange`|*func*|A callback function that will be called when a non-selected tab should be selected. Called when a tab is clicked, or when navigated to through keyboard events.
 `tabListClassName`|*string*|className of the element wrapping all the tabs. Use this to set the className of the tab list element if you don't want to define the whole render function for it.
 `renderTab`|*func*|A callback that determines how a tab should be rendered.

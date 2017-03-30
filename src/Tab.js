@@ -4,6 +4,7 @@ import TabTitle from './TabTitle';
 
 export default class Tab extends React.Component {
 	static propTypes = {
+		tabKey: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
 		children: (props, propName, componentName) => {
 			const prop = props[propName];
 

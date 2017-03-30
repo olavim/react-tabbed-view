@@ -6,7 +6,7 @@ import TabTitle from './TabTitle';
 
 export default class TabbedView extends React.Component {
 	static propTypes = {
-		selectedKey: React.PropTypes.any,
+		selectedKey: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
 		onChange: React.PropTypes.func,
 		tabListClassName: React.PropTypes.string,
 		renderTab: React.PropTypes.func,

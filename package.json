@@ -13,7 +13,8 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "react": "^16.3.0"

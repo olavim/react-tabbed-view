@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Tab from './Tab';
 import TabContent from './TabContent';
@@ -6,12 +7,12 @@ import TabTitle from './TabTitle';
 
 export default class TabbedView extends React.Component {
 	static propTypes = {
-		selectedKey: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
-		onChange: React.PropTypes.func,
-		tabListClassName: React.PropTypes.string,
-		renderTab: React.PropTypes.func,
-		renderTabList: React.PropTypes.func,
-		renderTabContent: React.PropTypes.func,
+		selectedKey: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		onChange: PropTypes.func,
+		tabListClassName: PropTypes.string,
+		renderTab: PropTypes.func,
+		renderTabList: PropTypes.func,
+		renderTabContent: PropTypes.func,
 		children: (props, propName, componentName) => {
 			const prop = props[propName];
 

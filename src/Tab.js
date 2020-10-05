@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TabContent from './TabContent';
 import TabTitle from './TabTitle';
 
 export default class Tab extends React.Component {
 	static propTypes = {
-		tabKey: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
+		tabKey: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 		children: (props, propName, componentName) => {
 			const prop = props[propName];
 

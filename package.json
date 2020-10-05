@@ -37,7 +37,7 @@
     "jest": "^18.1.0",
     "node-sass": "^4.4.0",
     "sass-loader": "^4.0.0",
-    "standard-version": "^4.0.0",
+    "standard-version": "^8.0.1",
     "style-loader": "^0.13.0",
     "webpack": "^2.3.2",
     "xo": "^0.17.1"

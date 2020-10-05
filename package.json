@@ -1,6 +1,6 @@
 {
   "name": "react-tabbed-view",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "React tabs component",
   "main": "dist/index.js",
   "scripts": {
@@ -13,8 +13,10 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "react": "^15.4.2"
+    "classnames": "^2.2.5"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
@@ -33,7 +35,7 @@
     "eslint-plugin-react": "^6.9.0",
     "jest": "^18.1.0",
     "node-sass": "^4.4.0",
-    "sass-loader": "^3.0.0",
+    "sass-loader": "^4.0.0",
     "standard-version": "^4.0.0",
     "style-loader": "^0.13.0",
     "webpack": "^2.3.2",
